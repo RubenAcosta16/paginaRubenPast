@@ -265,10 +265,7 @@ left: 100px; */
         z-index: 10;
         /* overflow: hidden; */
     }
-    .nav-logo{
-        /* width: 100%; */
-                /* overflow:visible; */
-    }
+
 
    
     
@@ -317,13 +314,7 @@ left: 100px; */
     }
 
     /* esto es cuando le pico al boton del nav */
-    .nav-toggle-verbos-visible{
-        /* height: 100px; */
-        /* top:0; */
-        /* overflow:visible; */
-        /* height:fit-content; */
-        /* visibility: visible; */
-    }
+
 
 }
 
