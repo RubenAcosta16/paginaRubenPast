@@ -327,7 +327,7 @@ left: 100px; */
 
 }
 
-/* @media (max-width:582px){
+@media (max-width:582px){
     body{
         margin-top: 188px;
     }
@@ -337,4 +337,4 @@ left: 100px; */
     body{
         margin-top: 252px;
     }
-} */
+}
