@@ -1,41 +1,68 @@
- <!DOCTYPE html>
- <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <title>Palabras ingles</title>
-        <link rel="stylesheet" href="./style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./nav-bar.css">
 
-        <script src="https://kit.fontawesome.com/8959affc19.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <!-- <img src="./assets/arrow.svg" alt=""> -->
+    
+    <script src="https://kit.fontawesome.com/8959affc19.js" crossorigin="anonymous"></script>
+    <script defer src="./nav-bar.js"></script>
+    
+</head>
+<body>
+    <header>
+
         <nav class="nav">
-            <a href="#" class="nav-logo">Logo</a>
-            <!-- <button class="nav-toggle-verbos" aria-label="Abrir menu">
-                <span>Verbos</span>
-                <img src="./assets/arrow.svg" alt="" class="">
-            </button> -->
-            <div class="nav-menu-verbos">
 
-                <button class="nav-boton esconder">Generar Verbos</button>
-                <button class="nav-boton aleatorio">Aleatorio</button>
-                <button class="nav-boton orden">Ordenar</button>
-    
-                <button class="nav-boton significados">Significado</button>
-    
-                <button class="nav-boton significadosRandom">Significados Aleatorio</button>
+            <div class="nav-container">
+
+                <div class="nav-logo" title="Pagina de verbos"><a href="" class="nav-logo-link">Logo</a></div>
+
+                <button class="nav-toggle" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <ul class="nav-list">
+                    <li class="nav-list-item"><a href="" class="nav-list-link">Link</a></li>
+                    <li class="nav-list-item"><a href="" class="nav-list-link">Link</a></li>
+                    <li class="nav-list-item"><a href="" class="nav-list-link">Link</a></li>
+                    <li class="nav-list-item"><a href="" class="nav-list-link">Acerca de</a></li>
+
+
+                </ul>
             </div>
         </nav>
 
-        <h1>Verbos Irregulares Ingles</h1>
+    </header>
+    <main>
+        <h1>Verbs</h1>
 
-        <p><a href="https://pinetools.com/es/ordenar-lista" target="_blank">Aqui ordene la lista de verbos</a></p>
+        <p>Pagina de verbos</p>
+        <p>Esta es mi lista de verbos, entra al link para ver:</p>
 
-        <p>cambios screen </p>
-    <div class="contenedor"></div>
-    <script src="./past.js"></script>
-    </body>
+        <div class="verb-list">
+
+            <div class="verb-link"><a href="./past/">
+                <div>
+                Past
+            </div>
+            </a></div>
+            <div class="verb-link"><a href="./phrasal/"><div>
+                Phrasal
+            </div></a></div>
+
+        </div>
+
+
+    </main>
+
+    <footer>
+        Pagina de verbos 
+    </footer>
+
+</body>
 </html>
