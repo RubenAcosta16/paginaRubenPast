@@ -1,11 +1,12 @@
 *{
     margin:0;
     padding: 0;
+    box-sizing: border-box;
 }
 body{
     font-family: sans-serif;
     background-color: #eee;
-    margin-top:60px;
+    /* margin-top:60px; */
     box-sizing: border-box;
 }
 
@@ -15,12 +16,12 @@ body{
 .nav{
     display: flex;
 
-    position:fixed;
+    /* position:fixed; */
     /* margin-top:-40px; */
-    top:0;
+    /* top:0; */
     /* overflow: hidden; */
     background: #48f;
-    z-index: 100;
+    /* z-index: 100; */
 
     /* border: none; */
     /* outline: none; */
@@ -37,10 +38,11 @@ body{
 }
 
 .nav-menu-verbos{
+
     display: flex;
-    justify-content:space-around;
-    width: 100%;
-    max-width: 670px;
+    /* justify-content:space-around; */
+    /* width: 100%; */
+    /* max-width: 670px; */
     margin-right: 40px;
     /* width: max-content; */
 
@@ -65,6 +67,12 @@ body{
 }
 .nav-boton:hover{
     background-color: rgb(0, 101, 216);
+}
+
+.nav-toggle-verbos{
+    display: none;
+    background: none;
+    border: none;
 }
 
 .nav-logo{
@@ -181,3 +189,130 @@ left: 100px; */
 .img-back-active{
     transform: rotate(90deg);
 }
+
+
+
+@media (max-width:740px){
+
+
+    /* .body-nav-visible{
+        margin-top:107px;
+    } */
+    /* .nav-toggle-verbos{
+        display: block;
+
+        cursor: pointer;
+
+    }
+
+    .nav-toggle-verbos img{
+        height: 40px;
+
+        position: relative;
+        top: 4px;
+        margin: 0;
+        padding: 0;
+        transition: .3s;
+    } */
+
+        /* esto es cuando le pico al boton del nav */
+    /* .nav-toggle-img-rotate{
+        transform: rotate(90deg);
+    } */
+
+    /* .nav-toggle-verbos span{
+        font-size: 26px;
+
+        position: relative;
+        top:-7px;
+        margin: 0;
+        padding: 0;
+    } */
+
+
+
+
+
+
+
+
+
+    .nav{
+        flex-direction: column;
+
+        /* display: flex; */
+    
+        /* position:fixed; */
+        /* margin-top:-40px; */
+        /* top:0; */
+        /* overflow: hidden; */
+        /* background: #48f; */
+        /* z-index: 100; */
+    
+        /* border: none; */
+        /* outline: none; */
+    
+        width:100%;
+        height: fit-content;
+        /* padding: px; */
+    
+    
+        justify-content:space-between;
+        margin: 0 auto;/*y esto lo centra*/
+    
+        /* z-index: 10; */
+        /* overflow: hidden; */
+    }
+
+
+   
+    
+    .nav-boton{
+        /* color:#fff; */
+        /* background: none;
+        border: none; */
+        /* line-height: 60px; */
+        padding: 10px 5px;
+        cursor: pointer;
+    
+        font-size: 17px;
+        margin:10px 0;
+        width: max-content;
+    
+        /* border-radius: 7px; */
+        /* border: 2px solid #fff; */
+    
+        /* transition: .3s; */
+    }
+    .nav-menu-verbos{
+        /* z-index: -10; */
+        /* height: 0; */
+        /* visibility: hidden; */
+        
+        width: 100%;
+        background-color: #357;
+        /* position: relative; */
+        
+        flex-wrap: wrap;
+        
+        justify-content:space-around;
+
+        /* display: flex; */
+        /* width: 100%; */
+        /* max-width: 670px; */
+        /* margin-right: 40px; */
+        /* width: max-content; */
+
+        transition: .3s;
+        /* overflow: hidden; */
+
+                /* top:-100px; */
+
+                /* min-width: 586px; */
+    }
+
+    /* esto es cuando le pico al boton del nav */
+
+
+}
+
