@@ -1,8 +1,28 @@
-const navToggle=document.querySelector(".nav-toggle");
-const nav_list=document.querySelector(".nav-list");
+const menu=document.querySelector(".menu");
+
+const openMenu=document.querySelector(".open-menu");
+const closeMenu=document.querySelector(".close-menu");
 
 
-navToggle.addEventListener("click",()=>{
-    nav_list.classList.toggle("nav-list-visible");
-    console.log("so")
-})
+
+openMenu.addEventListener("click",menuToggle);
+closeMenu.addEventListener("click",menuToggle);
+
+
+
+function menuToggle(){
+    menu.classList.toggle("menu_opened")
+}
+
+
+
+
+const menuLinks=document.querySelectorAll(".menu a[href^='#']");
+
+menuLinks.forEach(menuLink =>{
+    menuLink.addEventListener("click", function(){
+        menu.classList.remove("menu_opened");
+    });
+
+
+});
