@@ -17,12 +17,15 @@ function menuToggle(){
 
 
 
+// const menuLinks=document.querySelectorAll(".menu a[href^='#']");
 const menuLinks=document.querySelectorAll(".menu a[href^='#']");
 
 menuLinks.forEach(menuLink =>{
     menuLink.addEventListener("click", function(){
         menu.classList.remove("menu_opened");
+        console.log("si")
     });
 
 
 });
+

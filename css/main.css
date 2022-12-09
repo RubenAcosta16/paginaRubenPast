@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+
+
 :root{
     --theme-color:#fff;
     --theme-color-inverse:#1d1d1d;
@@ -31,6 +33,16 @@ body{
     margin-top: 80px;
 
     color: var(--color-text);
+}
+
+html{
+    /* el scroll en la barra nav no es de golpe */
+    scroll-behavior: smooth;
+}
+
+section[id]{
+    /* cuando le des en la barra y te mande a esa parte de la pagina, la barra fixed tapa parte del contenido, esto lo arregla */
+    scroll-margin-top: 70px;
 }
 
 /* h1{

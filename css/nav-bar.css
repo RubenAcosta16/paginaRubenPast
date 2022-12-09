@@ -46,6 +46,15 @@
     /* margin-right: 10px; */
 }
 
+.nav-back{
+    display: none;
+    transform: rotate(180deg);
+    
+}
+.nav-back img{
+    width: 50px;
+    line-height: 82px;
+}
 
 .menu{
     list-style: none;
@@ -82,6 +91,8 @@
 .nav-item a:hover{
     color: var(--secondary-color);
 }
+
+
 
 .open-menu, .close-menu{
     display: none;
