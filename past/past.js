@@ -116,8 +116,8 @@
 random();
 
             
-    let boton=document.querySelector(".esconder");
-        boton.addEventListener("click",ejecutar);
+    // let boton=document.querySelector(".esconder");
+    //     boton.addEventListener("click",ejecutar);
 
     let aleatorio=document.querySelector(".aleatorio");
         aleatorio.addEventListener("click",random);
@@ -136,18 +136,18 @@ random();
             
             
             
-    function ejecutar(){
-            if(!switchBoton){
-                contenedor.style="visibility: hidden;";
-                //console.log("none");
-                switchBoton=true;
+    // function ejecutar(){
+    //         if(!switchBoton){
+    //             contenedor.style="visibility: hidden;";
+    //             //console.log("none");
+    //             switchBoton=true;
                
-            }else{
-                contenedor.style="visibility: visible;";
-                //console.log("block");
-                switchBoton=false;
-            }
-    }
+    //         }else{
+    //             contenedor.style="visibility: visible;";
+    //             //console.log("block");
+    //             switchBoton=false;
+    //         }
+    // }
                     
 
             
@@ -250,6 +250,8 @@ for(let i=0;i<verbos.length;i++){
 
                             contenedor.innerHTML="";
                             let ul=document.createElement("ul");
+                            ul.classList.add("list");
+
                             let switchVerbo=false;
             
                             let i=0;
@@ -318,6 +320,7 @@ for(let i=0;i<verbos.length;i++){
 
                 contenedor.innerHTML="";
                 let ul=document.createElement("ul");
+                ul.classList.add("list");
                 let switchVerbo=false;
 
                 let i=0;
