@@ -10,6 +10,19 @@ body{
     box-sizing: border-box;
 }
 
+.navbar-nav{
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+
+.navbar-nav .nav-link{
+    color: var(--color-text);
+}
+
 
 
 
@@ -100,7 +113,7 @@ body{
     /* width: 100%; */
     /* position: relative; */
     /* border: none; */
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .list{
