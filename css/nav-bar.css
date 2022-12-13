@@ -38,10 +38,12 @@
     color: var(--primary-color);
 
     text-decoration: none;
+
+    transition: filter .3s;
 }
 
 .nav-logo:hover{
-    color: var(--third-color);
+    filter: brightness(1.5);
 }
 
 .nav-logo img{
