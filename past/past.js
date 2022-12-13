@@ -126,12 +126,12 @@
 
     let verbosOrdenados_btn=document.querySelector(".orden");
         verbosOrdenados_btn.addEventListener("click",()=>{
-            mostrarVerbos(verbosOrdenados());
+            mostrarVerbosBloque(verbosOrdenados()); 
         });
                   
     let significados_btn=document.querySelector(".significados");
     significados_btn.addEventListener("click",()=>{
-        mostrarVerbos(significadoOrdenados());
+        mostrarVerbosBloque(significadoOrdenados()); 
     });
     
     let significadosRandom_btn=document.querySelector(".significadosRandom");
@@ -142,7 +142,8 @@
 
     let switchBoton=true;
             
-    mostrarVerbos(verbosOrdenados());       
+    // mostrarVerbos(verbosOrdenados());
+    mostrarVerbosBloque(verbosOrdenados());   
             
     // function ejecutar(){
     //         if(!switchBoton){
@@ -297,7 +298,7 @@ function significadosRandom(){
 function mostrarVerbos(verbos){
                 
 
-    contenedor.innerHTML="";
+    contenedor.innerHTML="<p class='text-p-sm w-75 mx-auto mb-5'>Estan ordenados de forma aleatoria para poner en practica lo aprendido:</p>";
     let ul=document.createElement("ul");
     ul.classList.add("list");
     let switchVerbo=false;
@@ -357,7 +358,85 @@ function mostrarVerbos(verbos){
 
 
 
+function mostrarVerbosBloque(verbos){
+                
 
+    contenedor.innerHTML="<p class='text-p-sm w-75 mx-auto'>Estan ordenados por bloques para que asi sea mas facil el aprendizaje, la idea es aprender 1 bloque por dia:</p>";
+    let ul=document.createElement("ul");
+    ul.classList.add("list");
+    let switchVerbo=false;
+    let c_bloque=1;
+
+    // let i=0;
+    for(let i=0;i<verbos[0].length;i++){
+        let switchVerbo=false;
+        let li=document.createElement("li");
+        let span=document.createElement("span");
+        let backImg=document.createElement("img");
+        
+
+        
+            
+        
+            backImg.src="./assets/arrow.svg";
+            
+            backImg.classList.add("img-back");
+            span.classList.add("significado");
+            li.classList.add(i,"verbo");
+
+            //hice esto para simplificar las cosas ul
+        let palabra=document.createElement("span");
+        palabra.classList.add("palabra")
+            palabra.innerHTML=`${verbos[0][i]}`;
+            
+            span.innerHTML=`${verbos[1][i]}`;
+            //` -${v[ve][1]} -${v[ve][2]}`
+
+
+
+            if(((i)%4==0) && !(verbos[0].length==(i+1))){
+                
+                let bloque=document.createElement("div");
+                bloque.innerHTML=`
+                <div class="separador-verbs">
+                    <div class="line"></div>
+                    <div class="num">${c_bloque}</div>
+                    <div class="line"></div>
+                </div>`;
+                // bloque.classList.add("significado");
+                ul.appendChild(bloque);
+                c_bloque++;
+            }
+
+            li.appendChild(palabra);
+            palabra.appendChild(backImg);
+            li.appendChild(span);
+            ul.appendChild(li);
+
+            contenedor.appendChild(ul);
+
+        
+        let verbo=document.querySelectorAll(".verbo");
+            verbo[i].addEventListener("click",()=>{
+                span.classList.toggle("significado-mostrar");
+
+                backImg.classList.toggle("img-back-active");
+//-----------------------------------------------------------------------
+                let height=0;
+
+        
+                console.log(span.scrollHeight);
+                //tamaño minimo para que exita el menu y no se desborde, calcula la altura
+        
+                if(span.clientHeight=="0"){
+                    height=span.scrollHeight;
+                }
+                span.style.height=height+"px";
+//------------------------------------------------------------
+            });
+            // i++;
+    }
+}
 
 
 // mostrar---------
