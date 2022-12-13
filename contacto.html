@@ -16,9 +16,10 @@
 <script src="https://kit.fontawesome.com/8959affc19.js" crossorigin="anonymous"></script>
 
 
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/nav-bar.css">
-    <link rel="stylesheet" href="../css/verbos_style.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/nav-bar.css">
+    <!-- <link rel="stylesheet" href="./css/verbos_style.css"> -->
+
     <!-- <link rel="stylesheet" href="./style.css"> -->
 
     <style>
@@ -251,6 +252,9 @@
             </nav>
         </header>
 
+        <div class="p-5">
+
+        
         <section class="contact container-lg p-5" id="contact">
             <h2 class="contact-title">Contacto</h2>
             <div class="contact-details">
@@ -273,17 +277,17 @@
                     <input type="text" name="name" required id="name">
                 </div> -->
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Nombre">
-                    <label for="floatingInput">Nombre</label>
+                    <input type="text" class="form-control" name="name" id="floatingInput" placeholder="Nombre">
+                    <label for="name">Nombre</label>
                   </div>
 
                   <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="Nombre">
-                    <label for="floatingInput">Email</label>
+                    <input type="email" class="form-control" name="email" id="floatingInput" placeholder="Email">
+                    <label for="email">Email</label>
                   </div>
                   <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                    <label for="floatingTextarea">Comments</label>
+                    <textarea class="form-control" placeholder="Leave a comment here" name="message" id="floatingTextarea"></textarea>
+                    <label for="message">Mensaje</label>
                   </div>
         
                 <button type="submit" class="contact-form-submit">Enviar</button>
@@ -311,6 +315,7 @@
                 </ul>
             </nav>
         </section>
+    </div>
         
   <footer class="container-fluid footer p-5">
     <p class="text-center">Pagina de verbos - Ruben Acosta</p>

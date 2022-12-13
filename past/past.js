@@ -142,7 +142,7 @@
 
     let switchBoton=true;
             
-    mostrarVerbos(verbosRandom());        
+    mostrarVerbos(verbosOrdenados());       
             
     // function ejecutar(){
     //         if(!switchBoton){
@@ -352,6 +352,13 @@ function mostrarVerbos(verbos){
             // i++;
     }
 }
+
+
+
+
+
+
+
 
 // mostrar---------
 
