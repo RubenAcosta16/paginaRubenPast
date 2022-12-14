@@ -1,0 +1,16 @@
+.link-btn-card{
+
+}
+
+.link-btn-card .card{
+    width: 180px;
+    margin:0 auto;
+}
+
+.link-btn-card  a{
+    color: var(--color-text);
+    text-decoration: none;
+    background: red;
+    cursor: pointer;
+    /* width: fit-content; */
+}
