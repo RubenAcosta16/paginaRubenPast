@@ -113,28 +113,36 @@
     let contenedor=document.querySelector(".contenedor");
             
 
-random();
+
 
             
     // let boton=document.querySelector(".esconder");
     //     boton.addEventListener("click",ejecutar);
 
-    let aleatorio=document.querySelector(".aleatorio");
-        aleatorio.addEventListener("click",random);
+    let verbosRandom_btn=document.querySelector(".aleatorio");
+        verbosRandom_btn.addEventListener("click",()=>{
+            mostrarVerbos(verbosRandom());
+        });
 
-    let orden=document.querySelector(".orden");
-        orden.addEventListener("click",ordenar);
+    let verbosOrdenados_btn=document.querySelector(".orden");
+        verbosOrdenados_btn.addEventListener("click",()=>{
+            mostrarVerbos(verbosOrdenados());
+        });
                   
-    let significados=document.querySelector(".significados");
-    significados.addEventListener("click",mostrarSignificado);
+    let significados_btn=document.querySelector(".significados");
+    significados_btn.addEventListener("click",()=>{
+        mostrarVerbos(significadoOrdenados());
+    });
     
-    let significadosRandom=document.querySelector(".significadosRandom");
-    significadosRandom.addEventListener("click",mostrarSignificadoRandom);
-
+    let significadosRandom_btn=document.querySelector(".significadosRandom");
+    significadosRandom_btn.addEventListener("click",()=>{
+        mostrarVerbos(significadosRandom());
+    });
+    
 
     let switchBoton=true;
             
-            
+    mostrarVerbos(verbosRandom());        
             
     // function ejecutar(){
     //         if(!switchBoton){
@@ -149,315 +157,235 @@ random();
     //         }
     // }
                     
+function listaRandom(num){
+    //aleatorio
+    let lista = [];
+    for(let i=0;i<num; i++){
+        lista.push(i)
+    }
+    lista = lista.sort(function() {return     Math.random() - 0.5});
+    //fin aleatorio
 
-            
-   function random(){
+    return lista
+}
+
+function obtenerVerbos(){
+    //recoje los verbos a desordenar
+    let c=0;
+    let verbos=[];
+        for(verb in v){
+            verbos[c]=verb;
+            c++;
+        }
+        //console.log(verbos);
+    //fin de recojer
+
+    return verbos
+}
+
+
+// Obtener verbos
+
+
+function verbosRandom(){
+
+    let verbos=obtenerVerbos();
+    // console.log(verbos)
+
+    let lista=listaRandom(verbos.length);
+    // console.log(lista)
+
+    // let li=[];
+    let palabra=[];
+    let span=[];
+
+    for(let i=0;i<verbos.length;i++){
+        // li[i]+=i,"verbo",verbos[lista[i]];
+        palabra[i]=`${(i+1)} - ${v[verbos[lista[i]]][0]}`;
+        span[i]=`${v[verbos[lista[i]]][1]}`;
+        
+
+    }
+
+    
+    let devolver=[palabra,span];
+
+    // console.log(devolver)
+    return devolver;
+}
+
+
+function verbosOrdenados(){
+    let verbos=obtenerVerbos();
+
+
+    // let li=[];
+    let palabra=[];
+    let span=[];
+
+    for(let i=0;i<verbos.length;i++){
+        // li[i]+=i,"verbo",verbos[lista[i]];
+        palabra[i]=`${(i+1)} - ${v[verbos[i]][0]}`;
+        span[i]=`${v[verbos[i]][1]}`;
+        
+
+    }
+
+    
+    let devolver=[palabra,span];
+
+    // console.log(devolver)
+    return devolver;
+}
+
+
+function significadoOrdenados(){
+    let verbos=obtenerVerbos();
+
+
+    // let li=[];
+    let palabra=[];
+    let span=[];
+
+    for(let i=0;i<verbos.length;i++){
+        // li[i]+=i,"verbo",verbos[lista[i]];
+        palabra[i]=`${(i+1)} - ${v[verbos[i]][1]}`;
+        span[i]=`${v[verbos[i]][0]}`;
+        
+
+    }
+
+    
+    let devolver=[palabra,span];
+
+    // console.log(devolver)
+    return devolver;
+}
+
+function significadosRandom(){
+
+    let verbos=obtenerVerbos();
+    // console.log(verbos)
+
+    let lista=listaRandom(verbos.length);
+    // console.log(lista)
+
+    // let li=[];
+    let palabra=[];
+    let span=[];
+
+    for(let i=0;i<verbos.length;i++){
+        // li[i]+=i,"verbo",verbos[lista[i]];
+        palabra[i]=`${(i+1)} - ${v[verbos[lista[i]]][1]}`;
+        span[i]=`${v[verbos[lista[i]]][0]}`;
+        
+
+    }
+
+    
+    let devolver=[palabra,span];
+
+    // console.log(devolver)
+    return devolver;
+}
+
+
+// Obtener verbos----------
+
+
+// mostrar
+function mostrarVerbos(verbos){
+                
+
     contenedor.innerHTML="";
-    //recoje los verbos a desordenar
-        let c=0;
-        let verbos=[];
-            for(verb in v){
-                verbos[c]=verb;
-                c++;
-            }
-            //console.log(verbos);
-    //fin de recojer
-    //aleatorio
-        let lista = [];
-            for(let i=0;i<verbos.length; i++){
-                lista.push(i)
-            }
-            lista = lista.sort(function() {return     Math.random() - 0.5});
-    //fin aleatorio
-
-//let contenedor=document.querySelector(".contenedor");
-let ul=document.createElement("ul");
-ul.classList.add("list");
-
-
-
-
-
-//aqui empieza lo bueno
-for(let i=0;i<verbos.length;i++){
+    let ul=document.createElement("ul");
+    ul.classList.add("list");
     let switchVerbo=false;
-    let li=document.createElement("li");
-    let span=document.createElement("span");
-    let backImg=document.createElement("img");
-        
-    
-        backImg.src="./assets/arrow.svg";
-        
-        backImg.classList.add("img-back");
-        span.classList.add("significado");
-        li.classList.add(i,"verbo",verbos[lista[i]]);
 
-        //hice esto para simplificar las cosas ul
-    let palabra=document.createElement("span");
-    palabra.classList.add("palabra")
-        palabra.innerHTML=`${(i+1)} - ${v[verbos[lista[i]]][0]}`;
-        
-        span.innerHTML=`${v[verbos[lista[i]]][1]}`;
-        //` -${v[ve][1]} -${v[ve][2]}`
-
-        li.appendChild(palabra);
-        palabra.appendChild(backImg);
-        li.appendChild(span);
-        ul.appendChild(li);
-        contenedor.appendChild(ul);
-
-    
-    let verbo=document.querySelectorAll(".verbo");
-        verbo[i].addEventListener("click",()=>{
-            span.classList.toggle("significado-mostrar");
-
-            backImg.classList.toggle("img-back-active");
-//-----------------------------------------------------------------------
-            let height=0;
-
-    
-            console.log(span.scrollHeight);
-            //tamaño minimo para que exita el menu y no se desborde, calcula la altura
-    
-            if(span.clientHeight=="0"){
-                height=span.scrollHeight;
-            }
-            span.style.height=height+"px";
-//------------------------------------------------------------
-        });
-
-        let ve=verbos[lista[i]];
-
-
-}   
-}
-   
-
-
-   
-
-
-
-
-    function ordenar(){
-                            let c=0;
-                            let verbos=[];
-                                for(verb in v){
-                                    verbos[c]=verb;
-                                    c++;
-                                }
-                                
-
-                            contenedor.innerHTML="";
-                            let ul=document.createElement("ul");
-                            ul.classList.add("list");
-
-                            let switchVerbo=false;
+    // let i=0;
+    for(let i=0;i<verbos[0].length;i++){
+        let switchVerbo=false;
+        let li=document.createElement("li");
+        let span=document.createElement("span");
+        let backImg=document.createElement("img");
             
-                            let i=0;
-                            for(verbo in v){
-                                let switchVerbo=false;
-                                let li=document.createElement("li");
-                                let span=document.createElement("span");
-                                let backImg=document.createElement("img");
-                                    
-                                
-                                    backImg.src="./assets/arrow.svg";
-                                    
-                                    backImg.classList.add("img-back");
-                                    span.classList.add("significado");
-                                    li.classList.add(i,"verbo",v[verbos[i][0]]);
-                    
-                                    //hice esto para simplificar las cosas ul
-                                let palabra=document.createElement("span");
-                                palabra.classList.add("palabra")
-                                    palabra.innerHTML=`${(i+1)} - ${v[verbos[i]][0]}`;
-                                    
-                                    span.innerHTML=`${v[verbos[i]][1]}`;
-                                    //` -${v[ve][1]} -${v[ve][2]}`
-                    
-                                    li.appendChild(palabra);
-                                    palabra.appendChild(backImg);
-                                    li.appendChild(span);
-                                    ul.appendChild(li);
-                                    contenedor.appendChild(ul);
-                    
-                                
-                                let verbo=document.querySelectorAll(".verbo");
-                                    verbo[i].addEventListener("click",()=>{
-                                        span.classList.toggle("significado-mostrar");
         
-                                        backImg.classList.toggle("img-back-active");
-                     //-----------------------------------------------------------------------
-                                        let height=0;
+            backImg.src="./assets/arrow.svg";
+            
+            backImg.classList.add("img-back");
+            span.classList.add("significado");
+            li.classList.add(i,"verbo");
+
+            //hice esto para simplificar las cosas ul
+        let palabra=document.createElement("span");
+        palabra.classList.add("palabra")
+            palabra.innerHTML=`${verbos[0][i]}`;
+            
+            span.innerHTML=`${verbos[1][i]}`;
+            //` -${v[ve][1]} -${v[ve][2]}`
+
+            li.appendChild(palabra);
+            palabra.appendChild(backImg);
+            li.appendChild(span);
+            ul.appendChild(li);
+            contenedor.appendChild(ul);
+
         
-                                
-                                        console.log(span.scrollHeight);
-                                        //tamaño minimo para que exita el menu y no se desborde, calcula la altura
-                                
-                                        if(span.clientHeight=="0"){
-                                            height=span.scrollHeight;
-                                        }
-                                        span.style.height=height+"px";
-                    //------------------------------------------------------------
-                                    });
-                                    i++;
-                            }
-    }
-                        
-                        
+        let verbo=document.querySelectorAll(".verbo");
+            verbo[i].addEventListener("click",()=>{
+                span.classList.toggle("significado-mostrar");
 
-                        
-                        
-    function mostrarSignificado(){
-                let c=0;
-                let verbos=[];
-                    for(verb in v){
-                        verbos[c]=verb;
-                        c++;
-                    }
-                    
-
-                contenedor.innerHTML="";
-                let ul=document.createElement("ul");
-                ul.classList.add("list");
-                let switchVerbo=false;
-
-                let i=0;
-                for(verbo in v){
-                    let switchVerbo=false;
-                    let li=document.createElement("li");
-                    let span=document.createElement("span");
-                    let backImg=document.createElement("img");
-                        
-                    
-                        backImg.src="./assets/arrow.svg";
-                        
-                        backImg.classList.add("img-back");
-                        span.classList.add("significado");
-                        li.classList.add(i,"verbo",v[verbos[i][0]]);
-        
-                        //hice esto para simplificar las cosas ul
-                    let palabra=document.createElement("span");
-                    palabra.classList.add("palabra")
-                        palabra.innerHTML=`${(i+1)} - ${v[verbos[i]][1]}`;
-                        
-                        span.innerHTML=`${v[verbos[i]][0]}`;
-                        //` -${v[ve][1]} -${v[ve][2]}`
-        
-                        li.appendChild(palabra);
-                        palabra.appendChild(backImg);
-                        li.appendChild(span);
-                        ul.appendChild(li);
-                        contenedor.appendChild(ul);
-        
-                    
-                    let verbo=document.querySelectorAll(".verbo");
-                        verbo[i].addEventListener("click",()=>{
-                            span.classList.toggle("significado-mostrar");
-
-                            backImg.classList.toggle("img-back-active");
-         //-----------------------------------------------------------------------
-                            let height=0;
-
-                    
-                            console.log(span.scrollHeight);
-                            //tamaño minimo para que exita el menu y no se desborde, calcula la altura
-                    
-                            if(span.clientHeight=="0"){
-                                height=span.scrollHeight;
-                            }
-                            span.style.height=height+"px";
-        //------------------------------------------------------------
-                        });
-                        i++;
-                }
-    }
-                    
-    
-
-    function mostrarSignificadoRandom(){
-        console.log("si");
-        contenedor.innerHTML="";
-    //recoje los verbos a desordenar
-        let c=0;
-        let verbos=[];
-            for(verb in v){
-                verbos[c]=verb;
-                c++;
-            }
-            //console.log(verbos);
-    //fin de recojer
-    //aleatorio
-        let lista = [];
-            for(let i=0;i<verbos.length; i++){
-                lista.push(i)
-            }
-            lista = lista.sort(function() {return     Math.random() - 0.5});
-    //fin aleatorio
-
-//let contenedor=document.querySelector(".contenedor");
-let ul=document.createElement("ul");
-ul.classList.add("list");
-
-
-
-
-
-//aqui empieza lo bueno
-for(let i=0;i<verbos.length;i++){
-    let switchVerbo=false;
-    let li=document.createElement("li");
-    let span=document.createElement("span");
-    let backImg=document.createElement("img");
-        
-    
-        backImg.src="./assets/arrow.svg";
-        
-        backImg.classList.add("img-back");
-        span.classList.add("significado");
-        li.classList.add(i,"verbo",verbos[lista[i]]);
-
-        //hice esto para simplificar las cosas ul
-    let palabra=document.createElement("span");
-    palabra.classList.add("palabra")
-        palabra.innerHTML=`${(i+1)} - ${v[verbos[lista[i]]][1]}`;
-        
-        span.innerHTML=`${v[verbos[lista[i]]][0]}`;
-        //` -${v[ve][1]} -${v[ve][2]}`
-
-        li.appendChild(palabra);
-        palabra.appendChild(backImg);
-        li.appendChild(span);
-        ul.appendChild(li);
-        contenedor.appendChild(ul);
-
-    
-    let verbo=document.querySelectorAll(".verbo");
-        verbo[i].addEventListener("click",()=>{
-            span.classList.toggle("significado-mostrar");
-
-            backImg.classList.toggle("img-back-active");
+                backImg.classList.toggle("img-back-active");
 //-----------------------------------------------------------------------
-            let height=0;
+                let height=0;
 
-    
-            console.log(span.scrollHeight);
-            //tamaño minimo para que exita el menu y no se desborde, calcula la altura
-    
-            if(span.clientHeight=="0"){
-                height=span.scrollHeight;
-            }
-            span.style.height=height+"px";
+        
+                console.log(span.scrollHeight);
+                //tamaño minimo para que exita el menu y no se desborde, calcula la altura
+        
+                if(span.clientHeight=="0"){
+                    height=span.scrollHeight;
+                }
+                span.style.height=height+"px";
 //------------------------------------------------------------
-        });
-
-        let ve=verbos[lista[i]];
-
-
-    }   
+            });
+            // i++;
+    }
 }
-                        
+
+// mostrar---------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         
                         
             
