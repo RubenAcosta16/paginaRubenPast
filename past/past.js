@@ -77,8 +77,8 @@ let v={
                 
     let contenedor=document.querySelector(".contenedor");
             
-    let introduccionAleatorio="<p class='text-p-sm w-75-sm mx-auto mb-5'>Estan ordenados de forma aleatoria para poner en practica lo aprendido:</p>";
-    let introduccionBloque="<p class='text-p-sm w-75 mx-auto'>Estan ordenados por bloques para que asi sea mas facil el aprendizaje, la idea es aprender 1 bloque por dia:</p>";
+    let introduccionAleatorio="<p class='text-p-sm w-75-sm mx-auto mb-5 intro-verbs'>Estan ordenados de forma aleatoria para poner en practica lo aprendido:</p>";
+    let introduccionBloque="<p class='text-p-sm w-75 mx-auto intro-verbs'>Estan ordenados por bloques para que asi sea mas facil el aprendizaje, la idea es aprender 1 bloque por dia:</p>";
 
 
             
