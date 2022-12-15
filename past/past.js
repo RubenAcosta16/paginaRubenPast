@@ -275,7 +275,7 @@ function mostrarVerbos(verbos,introduccion,switchBloque){
         let backImg=document.createElement("img");
             
         
-            backImg.src="./assets/arrow.svg";
+            backImg.src="../img/arrow.svg";
             
             backImg.classList.add("img-back");
             span.classList.add("significado");
