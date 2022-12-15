@@ -278,7 +278,7 @@ function mostrarVerbos(verbos,introduccion,switchBloque){
             backImg.src="../img/arrow.svg";
             
             backImg.classList.add("img-back");
-            span.classList.add("significado");
+            span.classList.add("significado","text-p-sm");
             li.classList.add(i,"verbo");
 
             //hice esto para simplificar las cosas ul
@@ -319,7 +319,7 @@ function mostrarVerbos(verbos,introduccion,switchBloque){
                 let height=0;
 
         
-                console.log(span.scrollHeight);
+                // console.log(span.scrollHeight);
                 //tamaño minimo para que exita el menu y no se desborde, calcula la altura
         
                 if(span.clientHeight=="0"){
