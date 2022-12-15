@@ -136,13 +136,13 @@ left: 100px; */
         width: 100% !important;
     }
 
-    .navbar-verbs{
+    /* .navbar-verbs{
         background-color: var(--theme-color);
         border-radius: 10px;
     
         border: var(--color-text) 1px solid;
     
-    }
+    } */
 }
 
 
@@ -161,5 +161,9 @@ left: 100px; */
     background-color: var(--theme-color);
     border-radius: 10px;
     
+    /* width: 100% !important; */
+    margin:0;
+    position: relative;
+    left: 0;
 }
 
