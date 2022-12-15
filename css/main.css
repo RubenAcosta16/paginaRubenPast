@@ -35,7 +35,7 @@ body{
     
     /* font-family: sans-serif; */
     background-color: var(--theme-color);
-    margin-top: 80px;
+    margin-top: 76px;
 
     color: var(--color-text);
 }
@@ -115,6 +115,11 @@ background-size: cover;
 
 
 @media(max-width:950px){
+
+    body{
+        margin-top: 82px;
+
+    }
 
     .text-p-sm{
         font-size: 16px !important;

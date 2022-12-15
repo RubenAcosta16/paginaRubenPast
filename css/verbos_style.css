@@ -159,11 +159,9 @@ left: 100px; */
 
 .navbar-verbs{  
     background-color: var(--theme-color);
-    border-radius: 10px;
+    /* border-radius: 10px; */
     
-    /* width: 100% !important; */
-    margin:0;
-    position: relative;
-    left: 0;
+    /* border-bottom: var(--color-text) 2px solid; */
+
 }
 
