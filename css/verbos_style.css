@@ -82,7 +82,7 @@ left: 100px; */
 }
 
 .separador-verbs{
-    margin: 30px 0;
+    margin: 20px 0;
     display: flex;
     /* justify-content: space-between; */
     align-items: center;
@@ -143,6 +143,10 @@ left: 100px; */
         border: var(--color-text) 1px solid;
     
     } */
+
+    .separador-verbs{
+        margin: 10px 0;
+    }
 }
 
 
