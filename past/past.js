@@ -1,3 +1,5 @@
+
+
 let v={
         Become :["Become "," became - become"],
         Begin :["Begin "," began - begun"],
@@ -74,6 +76,7 @@ let v={
     }
 
 
+// console.log(JSON.stringify(v))
                 
     let contenedor=document.querySelector(".contenedor");
             
@@ -89,24 +92,16 @@ let v={
     // 
     // mostrarVerbos(lista ya hecha,introduccion de cosas aleatoriasAleatorio,si quiero o no el semarador de 4 en 4);
     let verbosRandom_btn=document.querySelector(".aleatorio");
-        verbosRandom_btn.addEventListener("click",()=>{
-            mostrarVerbos(verbosRandom(),introduccionAleatorio,false);
-        });
+        
 
     let verbosOrdenados_btn=document.querySelector(".orden");
-        verbosOrdenados_btn.addEventListener("click",()=>{
-            mostrarVerbos(verbosOrdenados(),introduccionBloque,true); 
-        });
+        
                   
     let significados_btn=document.querySelector(".significados");
-    significados_btn.addEventListener("click",()=>{
-        mostrarVerbos(significadoOrdenados(),introduccionBloque,true); 
-    });
+    
     
     let significadosRandom_btn=document.querySelector(".significadosRandom");
-    significadosRandom_btn.addEventListener("click",()=>{
-        mostrarVerbos(significadosRandom(),introduccionAleatorio,false);
-    });
+    
     
 
     let switchBoton=true;
@@ -115,8 +110,83 @@ let v={
             
 
 
-    mostrarVerbos(verbosOrdenados(),introduccionBloque,true); 
-            
+    // mostrarVerbos(verbosOrdenados(),introduccionBloque,true); 
+
+
+
+
+    const obtenerVerbosFetch=async ()=>{
+        // const buscaPais=busqueda.value;
+        // const endpoint=`${url}${buscaPais}`;
+    
+        try{
+    
+            let verbosFetch=[];
+            // let c=0;
+    
+            // segundo parametro opcional, tiene que ver con archivos
+            // 
+            const response=await fetch("./verbsPast.json");
+            if(response.ok){
+                // extrae un json del pedido, lo que vamos a sacar
+                const jsonResponse=await response.json();
+                // console.log(jsonResponse[0].verb)
+                // muestraResultados(jsonResponse) 
+                
+                for(let i=0;i<jsonResponse.length; i++){
+                    verbosFetch.push(jsonResponse[i])
+                }
+                // console.log(verbosFetch)
+                // return verbos;
+
+
+
+
+                mostrarVerbos(verbosOrdenados(verbosFetch),introduccionBloque,true); 
+
+                verbosRandom_btn.addEventListener("click",()=>{
+                    mostrarVerbos(verbosRandom(verbosFetch),introduccionAleatorio,false);
+                });
+
+                verbosOrdenados_btn.addEventListener("click",()=>{
+                    mostrarVerbos(verbosOrdenados(verbosFetch),introduccionBloque,true); 
+                });
+
+                significados_btn.addEventListener("click",()=>{
+                    mostrarVerbos(significadoOrdenados(verbosFetch),introduccionBloque,true); 
+                });
+
+                significadosRandom_btn.addEventListener("click",()=>{
+                    mostrarVerbos(significadosRandom(verbosFetch),introduccionAleatorio,false);
+                });
+                
+            }
+        }catch(error){
+            console.log(error)
+        }
+    
+    }
+
+    // let v=[];
+
+    // obtenerVerbosFetch();
+    obtenerVerbosFetch()
+
+    // const verbosFetch=()=>{
+    //     return obtenerVerbosFetch().then((verbs)=>{
+    //         return verbs;
+
+    //     })
+        
+    // }
+
+    // let verbosFetchEncapsulados=verbosFetch();
+    // console.log(verbosFetchEncapsulados);
+
+    // for(let i=0;i<verbosFetchEncapsulados.length;i++){
+    //     console.log(verbosFetchEncapsulados[i]);
+    // }
+
 
                     
 function listaRandom(num){
@@ -131,40 +201,52 @@ function listaRandom(num){
     return lista
 }
 
-function obtenerVerbos(){
-    //recoje los verbos a desordenar
-    let c=0;
-    let verbos=[];
-        for(verb in v){
-            verbos[c]=verb;
-            c++;
-        }
-        //console.log(verbos);
-    //fin de recojer
+// function obtenerVerbos(verbosFetch){
+//     console.log(verbosFetch)
+//     //recoje los verbos a desordenar
+    
+//     let c=0;
 
-    return verbos
-}
+
+//     let verbos=[];
+//         for(verb in v){
+//             verbos[c]=verb;
+//             c++;
+//         }
+//         console.log(verbos);
+//     //fin de recojer
+
+//     return verbos
+// }
+
 
 
 // Obtener verbos
 
 
-function verbosRandom(){
 
-    let verbos=obtenerVerbos();
+
+
+
+
+
+function verbosRandom(verbosFetch){
+
+    // let verbos=obtenerVerbos();
     // console.log(verbos)
 
-    let lista=listaRandom(verbos.length);
+    let lista=listaRandom(verbosFetch.length);
     // console.log(lista)
 
     // let li=[];
     let palabra=[];
     let span=[];
 
-    for(let i=0;i<verbos.length;i++){
+    for(let i=0;i<verbosFetch.length;i++){
         // li[i]+=i,"verbo",verbos[lista[i]];
-        palabra[i]=`${(i+1)} - ${v[verbos[lista[i]]][0]}`;
-        span[i]=`${v[verbos[lista[i]]][1]}`;
+        // palabra[i]=`${(i+1)} - ${v[verbos[lista[i]]][0]}`;
+        palabra[i]=`${(i+1)} - ${verbosFetch[lista[i]].name}`;
+        span[i]=`${verbosFetch[lista[i]].verb}`;
         
 
     }
@@ -177,18 +259,19 @@ function verbosRandom(){
 }
 
 
-function verbosOrdenados(){
-    let verbos=obtenerVerbos();
+function verbosOrdenados(verbosFetch){
+    // console.log(verbosFetch[1])
+    // let verbos=obtenerVerbos(verbosFetch);
 
 
     // let li=[];
     let palabra=[];
     let span=[];
 
-    for(let i=0;i<verbos.length;i++){
+    for(let i=0;i<verbosFetch.length;i++){
         // li[i]+=i,"verbo",verbos[lista[i]];
-        palabra[i]=`${(i+1)} - ${v[verbos[i]][0]}`;
-        span[i]=`${v[verbos[i]][1]}`;
+        palabra[i]=`${(i+1)} - ${verbosFetch[i].name}`;
+        span[i]=`${verbosFetch[i].verb}`;
         
 
     }
@@ -201,18 +284,18 @@ function verbosOrdenados(){
 }
 
 
-function significadoOrdenados(){
-    let verbos=obtenerVerbos();
+function significadoOrdenados(verbosFetch){
+    // let verbos=obtenerVerbos();
 
 
     // let li=[];
     let palabra=[];
     let span=[];
 
-    for(let i=0;i<verbos.length;i++){
+    for(let i=0;i<verbosFetch.length;i++){
         // li[i]+=i,"verbo",verbos[lista[i]];
-        palabra[i]=`${(i+1)} - ${v[verbos[i]][1]}`;
-        span[i]=`${v[verbos[i]][0]}`;
+        palabra[i]=`${(i+1)} - ${verbosFetch[i].verb}`;
+        span[i]=`${verbosFetch[i].name}`;
         
 
     }
@@ -224,22 +307,22 @@ function significadoOrdenados(){
     return devolver;
 }
 
-function significadosRandom(){
+function significadosRandom(verbosFetch){
 
-    let verbos=obtenerVerbos();
+    // let verbos=obtenerVerbos();
     // console.log(verbos)
 
-    let lista=listaRandom(verbos.length);
+    let lista=listaRandom(verbosFetch.length);
     // console.log(lista)
 
     // let li=[];
     let palabra=[];
     let span=[];
 
-    for(let i=0;i<verbos.length;i++){
+    for(let i=0;i<verbosFetch.length;i++){
         // li[i]+=i,"verbo",verbos[lista[i]];
-        palabra[i]=`${(i+1)} - ${v[verbos[lista[i]]][1]}`;
-        span[i]=`${v[verbos[lista[i]]][0]}`;
+        palabra[i]=`${(i+1)} - ${verbosFetch[lista[i]].verb}`;
+        span[i]=`${verbosFetch[lista[i]].name}`;
         
 
     }
@@ -302,6 +385,7 @@ function mostrarVerbos(verbos,introduccion,switchBloque){
                 ul.appendChild(bloque);
                 c_bloque++;
             }
+
 
             li.appendChild(palabra);
             palabra.appendChild(backImg);
@@ -395,5 +479,9 @@ function mostrarVerbos(verbos,introduccion,switchBloque){
 
 
 
+
+                
+
+            
 
                 
